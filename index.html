@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
+
+    <!-- Add SDKs for Firebase products that you want to use: https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-firestore.js"></script>
+    <title>Firebase test 2</title>
+  </head>
+  <body>
+    <div>
+      <h1>P E T E R&nbsp; &nbsp;Z E G V E L D</h1>
+      <h3>fotografie</h3>
+    </div>
+    <div>Foto's</div>
+    <br />
+    <div id="image-container">
+      <img id="imagetag" />
+    </div>
+    <script>
+      // Your web app's Firebase configuration
+      let firebaseConfig = {
+        apiKey: "AIzaSyBxHiVhfYUHreUgKnpJOZZPHq5xRXkiDcY",
+        authDomain: "peter-zegveld-fotografie.firebaseapp.com",
+        databaseURL: "https://peter-zegveld-fotografie.firebaseio.com",
+        projectId: "peter-zegveld-fotografie",
+        storageBucket: "peter-zegveld-fotografie.appspot.com",
+        messagingSenderId: "844610537837",
+        appId: "1:844610537837:web:eb5b941415b89841a87264",
+        measurementId: "G-FELE489HTR"
+      };
+
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+      let db = firebase.firestore();
+
+      // let storage = firebase.storage();
+      // let storageRef = storage.ref();
+      // storageRef.listAll().then(function(itemslist) {
+      //   itemslist.items.forEach(function(item) {
+      //     item.getDownloadURL().then(function(downloadurl) {
+      //       console.log(downloadurl);
+      //       document.getElementById("image-container").innerHTML +=
+      //         "<img src='" + downloadurl + "'>";
+      //     });
+      //   });
+      // });
+      // console.log("banaan");
+
+      // db.collection("images")
+      //   .doc("image1")
+      //   .onSnapshot(doc => {
+      //     // querySnapshot.forEach(doc => {
+      //     console.log(doc.data());
+      //     let container = document.getElementById("image-container");
+      //     let images = doc.data();
+      //     container.innerHTML += "<img src='" + images.image + "'>";
+      //     console.log(images.image);
+      //   });
+
+      // db.collection("images")
+      //   .get()
+      //   .then(function(querySnapshot) {
+      //     querySnapshot.forEach(function(doc) {
+      //       // doc.data() is never undefined for query doc snapshots
+      //       console.log(doc.id, " => ", doc.data());
+      //       let container = document.getElementById("imagetag");
+      //       let images = doc.data();
+      //       container.src = images.image;
+      //       console.log(images.image);
+      //     });
+      //   });
+
+      db.collection("images")
+        .get()
+        .then(function(querySnapshot) {
+          querySnapshot.forEach(function(doc) {
+            console.log(doc.data());
+            let container = document.getElementById("image-container");
+            let images = doc.data();
+            container.innerHTML += "<img src='" + images.image + "'>";
+            console.log(images.image);
+          });
+        });
+    </script>
+  </body>
+</html>
