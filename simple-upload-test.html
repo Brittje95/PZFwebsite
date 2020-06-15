@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-storage.js"></script>
+  </head>
+  <body>
+    <input type="file" id="photo" name="photo" /><br />
+    <button onclick="sendform()">Verzenden</button>
+    <img id="plaatje" />
+
+    <script>
+      // Your web app's Firebase configuration
+      let firebaseConfig = {
+        apiKey: "AIzaSyBxHiVhfYUHreUgKnpJOZZPHq5xRXkiDcY",
+        authDomain: "peter-zegveld-fotografie.firebaseapp.com",
+        databaseURL: "https://peter-zegveld-fotografie.firebaseio.com",
+        projectId: "peter-zegveld-fotografie",
+        storageBucket: "peter-zegveld-fotografie.appspot.com",
+        messagingSenderId: "844610537837",
+        appId: "1:844610537837:web:eb5b941415b89841a87264",
+        measurementId: "G-FELE489HTR"
+      };
+
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      let storage = firebase.storage();
+      let storageRef = storage.ref();
+
+      function sendform() {
+        const file = document.querySelector("#photo").files[0];
+        console.log(file);
+        const name = +new Date() + "-" + file.name;
+        const metadata = {
+          contentType: file.type
+        };
+        const task = storageRef.child(name).put(file, metadata);
+        task
+          .then(snapshot => snapshot.ref.getDownloadURL())
+          .then(url => {
+            console.log(url);
+            document.querySelector("#plaatje").src = url;
+          })
+          .catch(console.error);
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>Foto's</div>
+    <div id="list-element">
+      Dit is een data-container
+    </div>
+
+    <!-- Core Firebase JS SDK -->
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
+
+    <!-- SDKs for Firebase products: https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-storage.js"></script>
+
+    <script>
+      //Firebase configuration
+      let firebaseConfig = {
+        apiKey: "AIzaSyBxHiVhfYUHreUgKnpJOZZPHq5xRXkiDcY",
+        authDomain: "peter-zegveld-fotografie.firebaseapp.com",
+        databaseURL: "https://peter-zegveld-fotografie.firebaseio.com",
+        projectId: "peter-zegveld-fotografie",
+        storageBucket: "peter-zegveld-fotografie.appspot.com",
+        messagingSenderId: "844610537837",
+        appId: "1:844610537837:web:eb5b941415b89841a87264",
+        measurementId: "G-FELE489HTR"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      let db = firebase.firestore();
+      let storage = firebase.storage();
+      let storageRef = storage.ref();
+      db.collection("images")
+        .doc("image1")
+        .onSnapshot(doc => {
+          console.log(doc.data());
+          let list = document.getElementById("list-element");
+          let images = doc.data();
+          list.innerHTML = images.name + images.image;
+        });
+    </script>
+  </body>
+</html>
