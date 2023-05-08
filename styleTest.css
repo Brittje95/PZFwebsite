@@ -1,0 +1,185 @@
+@import url("https://use.typekit.net/pvj4xex.css");
+
+@import url("https://indestructibletype.com/fonts/Bodoni/Bodoni.css");
+
+@font-face {
+  font-family: "Mosk Extra-Light 200";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Mosk Extra-Light 200"),
+    url("fonts/Mosk Extra-Light 200.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Mosk Medium 500";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Mosk Medium 500"),
+    url("fonts/Mosk Medium 500.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Billabong";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Billabong"), url("fonts/Billabong.ttf") format("ttf");
+}
+
+html,
+body {
+  /* IE 10-11 didn't like using min-height */
+  height: 100%;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  background-color: #4a4a4a;
+  font-family: "Mosk Medium 500";
+  color: white;
+  font-size: 14pt;
+  margin: 0 5%;
+}
+.content {
+  flex: 1 0 auto; /* Prevent Chrome, Opera, and Safari from letting these items shrink to smaller than their content's default minimum size. */
+  padding: 20px;
+}
+.footer {
+  flex-shrink: 0; /* Prevent Chrome, Opera, and Safari from letting these items shrink to smaller than their content's default minimum size. */
+  padding: 20px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1 {
+  margin: 0 0 20px 0;
+}
+
+p {
+  margin: 0 0 20px 0;
+}
+h1 {
+  font-family: "bebas-neue-by-fontfabric", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+  font-size: 32pt;
+  margin-bottom: 0;
+}
+
+h2 {
+  font-family: "bebas-neue-by-fontfabric", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+  font-size: 26pt;
+  margin-top: -18%;
+  margin-bottom: 6%;
+  margin-left: 20%;
+}
+
+h3 {
+  font-family: "Bodoni 72";
+  font-style: italic;
+  font-size: 20pt;
+  color: yellow;
+  margin-top: 0;
+  margin-bottom: 3%;
+}
+
+h4 {
+  display: inline-block;
+  font-family: "Billabong";
+  font-style: normal;
+  font-size: 18pt;
+  margin: -1.5% 4%;
+}
+
+.div {
+  margin: 1% 1% 1% 0%;
+}
+
+#main {
+  display: flex;
+  flex-direction: column;
+  margin-left: -4%;
+  margin-top: 8%;
+}
+
+#masonry {
+  display: flex;
+  flex-direction: column;
+  margin-left: -4%;
+  margin-top: -8%;
+}
+
+#form {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20%;
+  margin-top: -5%;
+}
+
+.menu {
+  font-family: "Mosk Extra-Light 200";
+  margin: 1%;
+  margin-left: 0;
+}
+
+.grid {
+  max-width: 100%;
+  column-count: 4;
+  column-gap: 1em;
+  margin-left: 20%;
+  margin-top: -5%;
+}
+
+.grid-item {
+  display: inline-block;
+  margin: 0 0 0.8em;
+  width: 100%;
+  height: auto;
+}
+.grid-item img {
+  width: 100%;
+}
+
+a > img {
+  width: 22%;
+  margin: 23% 0%;
+}
+
+.footer {
+  flex-shrink: none;
+  padding: 3px 20px;
+}
+
+.instagram {
+  display: inline-block;
+  width: 7%;
+  /* margin: 2% 0 0; */
+  color: white;
+  text-decoration: none;
+}
+
+.instagram :hover {
+  color: black;
+}
+
+.logo {
+  margin-top: 1.5em;
+}
+
+.carousel {
+  position: relative;
+  width: 65%;
+  margin-left: 30%;
+  margin-top: -21%;
+}
+
+.carousel-item {
+  position: relative;
+  display: none;
+  float: right;
+  width: 100%;
+  align-content: center;
+}
